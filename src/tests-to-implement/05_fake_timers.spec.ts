@@ -2,10 +2,10 @@ import { describe, expect, it } from '@jest/globals'
 import { generateDayMessage } from '../tests-to-implement/05_fake_timers'
 
 describe('generateDayMessage', () => {
-
   beforeEach(()=> {
     jest.useFakeTimers("modern");
   });
+
   afterEach(()=> {
     jest.useRealTimers();
   });
@@ -67,29 +67,29 @@ describe('generateDayMessage', () => {
   })
 
   it('returns a message containing "Thursday" on Thursdays', () => {
-     // Arrange
-     const testTime = Date.UTC(2021, 4, 20, 13, 33, 25);
-     jest.setSystemTime(testTime);
-     jest.spyOn(Date.prototype,"toLocaleTimeString").mockImplementation(()=>"This is the current Time");
-     // Act
-     const actual = generateDayMessage();
-     // Assert
-     expect(actual).toBe("[THIS IS THE CURRENT TIME]: Today is Thursday")
+    // Arrange
+    const testTime = Date.UTC(2021, 4, 20, 13, 33, 25);
+    jest.setSystemTime(testTime);
+    jest.spyOn(Date.prototype,"toLocaleTimeString").mockImplementation(()=>"This is the current Time");
+    // Act
+    const actual = generateDayMessage();
+    // Assert
+    expect(actual).toBe("[THIS IS THE CURRENT TIME]: Today is Thursday")
   })
 
   it('returns a message containing "Friday" on Fridays', () => {
-     // Arrange
-     const testTime = Date.UTC(2021, 4, 21, 13, 33, 25);
-     jest.setSystemTime(testTime);
-     jest.spyOn(Date.prototype,"toLocaleTimeString").mockImplementation(()=>"This is the current Time");
-     // Act
-     const actual = generateDayMessage();
-     // Assert
-     expect(actual).toBe("[THIS IS THE CURRENT TIME]: Today is Friday")
+    // Arrange
+    const testTime = Date.UTC(2021, 4, 21, 13, 33, 25);
+    jest.setSystemTime(testTime);
+    jest.spyOn(Date.prototype,"toLocaleTimeString").mockImplementation(()=>"This is the current Time");
+    // Act
+    const actual = generateDayMessage();
+    // Assert
+    expect(actual).toBe("[THIS IS THE CURRENT TIME]: Today is Friday")
   })
 
   it('returns a message containing "Saturday" on Saturdays', () => {
-     // Arrange
+    // Arrange
     const testTime = Date.UTC(2021, 4, 22, 13, 33, 25);
     jest.setSystemTime(testTime);
     jest.spyOn(Date.prototype,"toLocaleTimeString").mockImplementation(()=>"This is the current Time");

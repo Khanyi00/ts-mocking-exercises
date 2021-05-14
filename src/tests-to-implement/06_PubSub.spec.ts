@@ -3,7 +3,7 @@ import { PubSub } from '../tests-to-implement/06_PubSub'
 
 describe('PubSub', () => {
   describe('subscribe', () => {
-    it('calls subscription callback when publish occurs on channel', async () => {
+    it.skip('calls subscription callback when publish occurs on channel', async () => {
       // Arrange
       const sut = PubSub.getInstance();
       const callBack = jest.fn();

@@ -10,26 +10,26 @@ describe('function mock return value', () => {
       // Arrange
       const items : Item[] =[
         {
-        id: "1",
-        name: "Bob",
-        price: 20,
-        description: "Food",
-        created: new Date
-      },
-      {
-        id: "2",
-        name: "Bob",
-        price: 5,
-        description: "Juice",
-        created: new Date
-      }
-    ]
-  
+          id: "1",
+          name: "Bob",
+          price: 20,
+          description: "Food",
+          created: new Date
+        },
+        {
+          id: "2",
+          name: "Bob",
+          price: 5,
+          description: "Juice",
+          created: new Date
+        }
+      ]
+       
       jest.spyOn(getAllFunctions, "getAll").mockResolvedValue(items);
       // Act
       const actual = await getAllItemsOnSale();
       // Assert
-    expect(actual.length).toBe(1);
+      expect(actual.length).toBe(1);
     })
   })
 })

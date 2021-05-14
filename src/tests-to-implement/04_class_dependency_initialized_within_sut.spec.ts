@@ -6,25 +6,25 @@ import { ItemPriceAdjusterVersion2 } from '../tests-to-implement/04_class_depend
 describe('ItemPriceAdjusterVersion2', () => {
   describe('price is less than 100', () => {
     it('marks item price up by the markup percentage', async () => {
-       // Arrange
-       const item : Item =
-       {
-       id: "1",
-       name: "Bob",
-       price: 20,
-       description: "Food",
-       created: new Date
-     };
-   
-     const pricingService = new PricingService();
-     const sut = new ItemPriceAdjusterVersion2();
-    //  (sut as any).pricingService = pricingService;
-    sut["pricingService"] = pricingService;
-     jest.spyOn(pricingService, "getMarkUpPercentage").mockResolvedValue(50);
-     // Act
-    const actual = await sut.adjustPrice(item);
-     // Assert
-    expect(actual.price).toBe(30);
+      // Arrange
+      const item : Item =
+        {
+        id: "1",
+        name: "Bob",
+        price: 20,
+        description: "Food",
+        created: new Date
+      };
+    
+      const pricingService = new PricingService();
+      const sut = new ItemPriceAdjusterVersion2();
+      //  (sut as any).pricingService = pricingService;
+      sut["pricingService"] = pricingService;
+      jest.spyOn(pricingService, "getMarkUpPercentage").mockResolvedValue(50);
+      // Act
+      const actual = await sut.adjustPrice(item);
+      // Assert
+      expect(actual.price).toBe(30);
     })
   })
 
@@ -33,44 +33,44 @@ describe('ItemPriceAdjusterVersion2', () => {
       // Arrange
       const item : Item =
       {
-      id: "1",
-      name: "Bob",
-      price: 150,
-      description: "Food",
-      created: new Date
-    };
+        id: "1",
+        name: "Bob",
+        price: 150,
+        description: "Food",
+        created: new Date
+      };
   
-    const pricingService = new PricingService();
-    const sut = new ItemPriceAdjusterVersion2();
-   //  (sut as any).pricingService = pricingService;
-   sut["pricingService"] = pricingService;
-    jest.spyOn(pricingService, "getMarkDownPercentage").mockResolvedValue(50);
-    // Act
-   const actual = await sut.adjustPrice(item);
-    // Assert
-   expect(actual.price).toBe(75);
+      const pricingService = new PricingService();
+      const sut = new ItemPriceAdjusterVersion2();
+      //  (sut as any).pricingService = pricingService;
+      sut["pricingService"] = pricingService;
+      jest.spyOn(pricingService, "getMarkDownPercentage").mockResolvedValue(50);
+      // Act
+      const actual = await sut.adjustPrice(item);
+      // Assert
+      expect(actual.price).toBe(75);
     })
   })
 
   describe('price is equal to 100', () => {
     it('will not alter the price', async () => {
-       // Arrange
-       const item : Item =
-       {
-       id: "1",
-       name: "Bob",
-       price: 100,
-       description: "Food",
-       created: new Date
-     };
+      // Arrange
+      const item : Item =
+      {
+        id: "1",
+        name: "Bob",
+        price: 100,
+        description: "Food",
+        created: new Date
+      };
    
-     const pricingService = new PricingService();
-     const sut = new ItemPriceAdjusterVersion2();
-    sut["pricingService"] = pricingService;
-     // Act
-    const actual = await sut.adjustPrice(item);
-     // Assert
-    expect(actual.price).toBe(100);
+      const pricingService = new PricingService();
+      const sut = new ItemPriceAdjusterVersion2();
+      sut["pricingService"] = pricingService;
+      // Act
+      const actual = await sut.adjustPrice(item);
+      // Assert
+      expect(actual.price).toBe(100);
     })
   })
 })
